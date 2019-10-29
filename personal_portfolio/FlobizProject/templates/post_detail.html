@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block body_block %}
+<h1>{{ postd.title }}</h1>
+<div class="row">
+    <div class="col-md-8">
+        <img src="{{ postd.image_url %}" alt="" width="100%">
+    </div>
+    <div class="col-md-4">
+        <h5>About the post:</h5>
+        <p>{{ postd.description }}</p>
+        <br>
+       <a href="{% url 'post_Edit' postd.pk %}"
+                   class="btn btn-primary">
+                    Edit Post
+                </a>  
+    </div>
+</div>
+{% endblock %}

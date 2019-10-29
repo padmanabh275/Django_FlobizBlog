@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+  <div class="container">
+    <div class="jumbotron">
+      {% if added %}
+        <h1>Thank you for adding new Post!</h1>
+      {% elif edited %}
+		<h1>Thank you for editing Post!</h1>
+	  {% else%}
+        <h1>Create/Edit Post</h1>
+        <h3>Just fill out the form.</h3>
+<form enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+          {{ post_form.as_p }}
+          
+          <input type="submit" name="" value="Create/Edit">
+        </form>
+        
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
